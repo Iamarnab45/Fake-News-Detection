@@ -92,7 +92,7 @@ class NLPFeatures:
         sentences = sent_tokenize(text)
         words = word_tokenize(text.lower())
         
-        # Flesch Reading Ease Score
+        
         total_syllables = sum(self._count_syllables(word) for word in words)
         flesch_score = 206.835 - 1.015 * (len(words) / len(sentences)) - 84.6 * (total_syllables / len(words))
         

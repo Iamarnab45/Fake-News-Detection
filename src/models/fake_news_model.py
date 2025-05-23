@@ -41,17 +41,17 @@ class FakeNewsModel:
         """
         Load model if it exists at the specified path
         """
-        print(f"Attempting to load model from: {self.model_path}") # Diagnostic print
+        print(f"Attempting to load model from: {self.model_path}") 
         try:
             if os.path.exists(self.model_path):
-                print("Model file found.") # Diagnostic print
+                print("Model file found.")
                 self.pipeline = joblib.load(self.model_path)
                 self.is_trained = True
-                print("Model loaded successfully.") # Diagnostic print
+                print("Model loaded successfully.")
             else:
-                print("Model file not found at the specified path.") # Diagnostic print
+                print("Model file not found at the specified path.") 
         except Exception as e:
-            print(f"Could not load existing model: {str(e)}") # Diagnostic print
+            print(f"Could not load existing model: {str(e)}") 
             self.is_trained = False
 
     def train(self, texts: list, labels: list) -> Dict[str, float]:
@@ -125,7 +125,7 @@ class FakeNewsModel:
         
         # Save the model
         joblib.dump(self.pipeline, self.model_path)
-        print(f"Model saved to: {self.model_path}") # Diagnostic print
+        print(f"Model saved to: {self.model_path}")     
 
     def evaluate(self, texts: list, labels: list) -> Dict[str, float]:
         """

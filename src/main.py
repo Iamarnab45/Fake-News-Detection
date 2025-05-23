@@ -28,12 +28,12 @@ app = FastAPI(
 
 # Mount static files
 STATIC_FILES_DIR = BASE_DIR / "static"
-print(f"Serving static files from: {STATIC_FILES_DIR}") # Diagnostic print
+print(f"Serving static files from: {STATIC_FILES_DIR}") 
 app.mount("/static", StaticFiles(directory=STATIC_FILES_DIR), name="static")
 
 # Templates
 TEMPLATES_DIR = BASE_DIR / "templates"
-print(f"Serving templates from: {TEMPLATES_DIR}") # Diagnostic print
+print(f"Serving templates from: {TEMPLATES_DIR}") 
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 # Add CORS middleware
@@ -86,7 +86,7 @@ def extract_article_content(url: str) -> tuple[str, str, str]:
         # Extract title
         title = soup.find('title').text.strip()
         
-        # Extract content (this is a basic implementation, might need to be customized for different news sites)
+        
         content = ' '.join([p.text for p in soup.find_all('p')])
         
         # Extract source from URL
